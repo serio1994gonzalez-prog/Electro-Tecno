@@ -1,5 +1,6 @@
 import { MapPin, Phone, Clock, Mail } from "lucide-react";
-import logoAsset from "@/assets/logo-electrotecno.png.asset.json";
+// 🚀 Importación directa corregida para que el logo se vea correctamente
+import logoImage from "@/assets/logo-electrotecno.png";
 import { INSTAGRAM_URL, TIKTOK_URL, WHATSAPP_URL } from "@/lib/whatsapp";
 
 function InstagramGlyph({ className }: { className?: string }) {
@@ -56,7 +57,8 @@ export function Footer() {
     <footer className="mt-16 md:mt-24 bg-secondary text-secondary-foreground">
       <div className="mx-auto max-w-7xl px-4 md:px-6 py-12 grid grid-cols-1 md:grid-cols-4 gap-10">
         <div>
-          <img src={logoAsset.url} alt="ElectroTecno" className="h-10 w-auto mb-4" />
+          {/* Logo corregido */}
+          <img src={logoImage} alt="ElectroTecno" className="h-10 w-auto mb-4" />
           <p className="text-sm opacity-75 max-w-xs">
             Venta mayorista y minorista de productos electrónicos, herramientas, accesorios y mucho más.
           </p>

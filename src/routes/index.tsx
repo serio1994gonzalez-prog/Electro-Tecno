@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { PartyPopper } from "lucide-react";
 import { Header } from "@/components/Header";
-import { HeroSlider } from "@/components/HeroSlider";
+import { PromoBanners } from "@/components/PromoBanners"; // 🚀 Cambiado para renderizar el nuevo slider elegante
 import { CategoriesCarousel } from "@/components/CategoriesCarousel";
 import { ProductSection } from "@/components/ProductSection";
 import { TrustStrip } from "@/components/TrustStrip";
@@ -37,7 +37,6 @@ function Home() {
   const [selected, setSelected] = useState<string | null>(null);
   const [confetti, setConfetti] = useState(true);
   const [categories, setCategories] = useState<Categoria[]>(fallbackCategorias);
-  const [banners, setBanners] = useState<HomeBanner[]>([]);
 
   useEffect(() => {
     const saved = typeof window !== "undefined" ? localStorage.getItem("et_confetti") : null;
@@ -45,9 +44,8 @@ function Home() {
   }, []);
 
   useEffect(() => {
-    void Promise.all([fetchCategorias(), fetchHomeBanners()]).then(([nextCategories, nextBanners]) => {
+    void Promise.all([fetchCategorias(), fetchHomeBanners()]).then(([nextCategories]) => {
       setCategories(nextCategories);
-      setBanners(nextBanners);
     });
   }, []);
 
@@ -74,7 +72,8 @@ function Home() {
         <ArgentinaConfetti enabled={confetti} />
         <Header />
         <main className="flex-1">
-          <HeroSlider banners={banners} onSelectCategory={handleSelect} />
+          {/* Renderizado premium del Slider corregido */}
+          <PromoBanners onSelectCategory={handleSelect} />
           <CategoriesCarousel categories={categories} selected={selected} onSelect={handleSelect} />
           <ProductSection selected={selected} />
           <TrustStrip />

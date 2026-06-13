@@ -1,7 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { Search, Menu, ShoppingCart } from "lucide-react";
 import { useState } from "react";
-import logoAsset from "@/assets/logo-electrotecno.png.asset.json";
+// 🚀 Importación corregida: asegúrate de que el archivo esté en src/assets/logo-electrotecno.png
+import logoImage from "@/assets/logo-electrotecno.png";
 import { INSTAGRAM_URL, TIKTOK_URL, WHATSAPP_URL, buildConsultaUrl } from "@/lib/whatsapp";
 import { useCart } from "@/lib/cart";
 import { AdminGate } from "@/components/AdminGate";
@@ -61,7 +62,6 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-40 bg-background/85 backdrop-blur-md border-b border-border">
-      {/* top strip */}
       <div className="hidden md:flex items-center justify-between text-xs px-6 py-2 bg-secondary text-secondary-foreground">
         <span className="opacity-90">Venta mayorista y minorista · Productos electrónicos, herramientas y más</span>
         <div className="flex items-center gap-5 opacity-90">
@@ -83,7 +83,12 @@ export function Header() {
 
         <AdminGate className="relative shrink-0">
           <Link to="/" className="flex items-center gap-2">
-            <img src={logoAsset.url} alt="ElectroTecno" className="h-14 md:h-20 w-auto pointer-events-none" draggable={false} />
+            <img 
+                src={logoImage} 
+                alt="ElectroTecno" 
+                className="h-14 md:h-20 w-auto pointer-events-none" 
+                draggable={false} 
+            />
           </Link>
         </AdminGate>
 
@@ -120,10 +125,8 @@ export function Header() {
             )}
           </button>
         </div>
-
       </div>
 
-      {/* mobile search */}
       <div className="md:hidden px-4 pb-3">
         <SearchBar />
       </div>
@@ -170,4 +173,3 @@ function SocialButton({ href, label, children }: { href: string; label: string; 
     </a>
   );
 }
-
