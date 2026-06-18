@@ -10,7 +10,7 @@ import { toast } from "sonner";
 export const Route = createFileRoute("/auth")({
   head: () => ({
     meta: [
-      { title: "Acceso · ElectroTecno" },
+      { title: "Acceso · Mayorista Vico" },
       { name: "robots", content: "noindex,nofollow" },
     ],
   }),

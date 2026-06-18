@@ -23,10 +23,10 @@ import {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "ElectroTecno | Tecnología y hogar" },
-      { name: "description", content: "Venta mayorista y minorista de productos electrónicos, herramientas, accesorios y electrodomésticos. Envíos a todo el país. Compra por WhatsApp." },
-      { property: "og:title", content: "ElectroTecno | Tecnología y hogar" },
-      { property: "og:description", content: "Explorá categorías, banners destacados y productos para el hogar, herramientas y televisores." },
+      { title: "Mayorista Vico | Electrodomésticos y tecnología" },
+      { name: "description", content: "Mayorista Vico: venta mayorista y minorista de electrodomésticos, tecnología, herramientas y accesorios. Envíos a todo el país. Compra por WhatsApp." },
+      { property: "og:title", content: "Mayorista Vico | Electrodomésticos y tecnología" },
+      { property: "og:description", content: "Explorá categorías, banners destacados y productos destacados de Mayorista Vico." },
       { property: "og:type", content: "website" },
     ],
   }),

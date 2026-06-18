@@ -2,10 +2,10 @@ import type { Producto } from "@/lib/catalog";
 import { formatPrice } from "@/lib/catalog";
 import type { CartItem } from "@/lib/cart";
 
-export const WHATSAPP_NUMBER = "5491130369394";
+export const WHATSAPP_NUMBER = "5491136198561";
 export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
-export const INSTAGRAM_URL = "https://www.instagram.com/electrotecnook";
-export const TIKTOK_URL = "https://www.tiktok.com/@electrotecnook";
+export const INSTAGRAM_URL = "https://www.instagram.com/mayoristavico";
+export const TIKTOK_URL = "https://www.tiktok.com/@mayoristavico";
 
 export interface PedidoData {
   nombre: string;
@@ -22,7 +22,7 @@ function fullName(d: PedidoData) {
 
 export function buildPedidoUrl(producto: Producto, data: PedidoData) {
   const msg = [
-    "🛒 NUEVO PEDIDO ELECTROTECNO",
+    "🛒 NUEVO PEDIDO MAYORISTA VICO",
     "",
     `Producto: ${producto.nombre}`,
     `Código: ${producto.codigo}`,
@@ -39,7 +39,7 @@ export function buildPedidoUrl(producto: Producto, data: PedidoData) {
 export function buildCartPedidoUrl(items: CartItem[], data: PedidoData) {
   const total = items.reduce((s, it) => s + it.cantidad * it.producto.precio, 0);
   const lines: string[] = [
-    "🛒 NUEVO PEDIDO ELECTROTECNO",
+    "🛒 NUEVO PEDIDO MAYORISTA VICO",
     "",
     `Cliente: ${fullName(data)}`,
     `Tel: ${data.telefono}`,

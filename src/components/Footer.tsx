@@ -1,4 +1,4 @@
-import { MapPin, Phone, Clock, Mail } from "lucide-react";
+import { MapPin, Phone, Clock } from "lucide-react";
 // 🚀 Importación directa corregida para que el logo se vea correctamente
 import logoImage from "@/assets/logo-electrotecno.png";
 import { INSTAGRAM_URL, TIKTOK_URL, WHATSAPP_URL } from "@/lib/whatsapp";
@@ -54,61 +54,62 @@ function WhatsAppGlyph({ className }: { className?: string }) {
 
 export function Footer() {
   return (
-    <footer className="mt-16 md:mt-24 bg-secondary text-secondary-foreground">
+    <footer
+      className="mt-16 md:mt-24 text-white"
+      style={{ background: "linear-gradient(135deg, #fb923c 0%, #f97316 45%, #c2410c 100%)" }}
+    >
       <div className="mx-auto max-w-7xl px-4 md:px-6 py-12 grid grid-cols-1 md:grid-cols-4 gap-10">
         <div>
-          {/* Logo corregido */}
-          <img src={logoImage} alt="ElectroTecno" className="h-10 w-auto mb-4" />
-          <p className="text-sm opacity-75 max-w-xs">
-            Venta mayorista y minorista de productos electrónicos, herramientas, accesorios y mucho más.
+          <img src={logoImage} alt="Mayorista Vico" className="h-14 w-auto mb-4 bg-white/95 rounded-lg p-2" />
+          <p className="text-sm text-white/90 max-w-xs">
+            Venta mayorista y minorista de electrodomésticos, tecnología y mucho más. Compra mínima: 3 productos surtidos o iguales.
           </p>
           <div className="flex items-center gap-3 mt-5">
-            <a href={INSTAGRAM_URL} target="_blank" rel="noreferrer" aria-label="Instagram" className="size-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center">
+            <a href={INSTAGRAM_URL} target="_blank" rel="noreferrer" aria-label="Instagram" className="size-12 rounded-full bg-white/15 hover:bg-white/25 flex items-center justify-center">
               <InstagramGlyph className="size-7" />
             </a>
-            <a href={TIKTOK_URL} target="_blank" rel="noreferrer" aria-label="TikTok" className="size-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center">
+            <a href={TIKTOK_URL} target="_blank" rel="noreferrer" aria-label="TikTok" className="size-12 rounded-full bg-white/15 hover:bg-white/25 flex items-center justify-center">
               <TikTokGlyph className="size-7" />
             </a>
-            <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" aria-label="WhatsApp" className="size-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center">
+            <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" aria-label="WhatsApp" className="size-12 rounded-full bg-white/15 hover:bg-white/25 flex items-center justify-center">
               <WhatsAppGlyph className="size-7" />
             </a>
           </div>
         </div>
 
         <div>
-          <h4 className="text-sm font-bold mb-4 text-primary">Contacto</h4>
-          <ul className="space-y-3 text-sm opacity-90">
-            <li className="flex items-start gap-2"><MapPin className="size-4 mt-0.5 shrink-0" />Almirante Brown 3410, Lomas del Mirador, Buenos Aires</li>
-            <li className="flex items-center gap-2"><Phone className="size-4" /> +54 9 11 3036 9394</li>
-            <li className="flex items-center gap-2"><Mail className="size-4" /> info@electrotecno.ar</li>
+          <h4 className="text-sm font-bold mb-4 text-white">Contacto</h4>
+          <ul className="space-y-3 text-sm text-white/95">
+            <li className="flex items-start gap-2"><MapPin className="size-4 mt-0.5 shrink-0" />Av. Eva Perón 7454, Merlo, Buenos Aires</li>
+            <li className="flex items-center gap-2"><Phone className="size-4" /> +54 9 11 3619-8561</li>
             <li className="flex items-center gap-2"><Clock className="size-4" /> Lunes a Sábados de 9 a 18hs</li>
           </ul>
         </div>
 
         <div>
-          <h4 className="text-sm font-bold mb-4 text-primary">Enlaces</h4>
-          <ul className="space-y-2 text-sm opacity-90">
-            <li><a href="/" className="hover:text-primary">Inicio</a></li>
-            <li><a href="#categorias" className="hover:text-primary">Categorías</a></li>
-            <li><a href="#destacados" className="hover:text-primary">Productos</a></li>
-            <li><a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="hover:text-primary">Contacto</a></li>
+          <h4 className="text-sm font-bold mb-4 text-white">Enlaces</h4>
+          <ul className="space-y-2 text-sm text-white/95">
+            <li><a href="/" className="hover:text-white">Inicio</a></li>
+            <li><a href="#categorias" className="hover:text-white">Categorías</a></li>
+            <li><a href="#destacados" className="hover:text-white">Productos</a></li>
+            <li><a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="hover:text-white">Contacto</a></li>
           </ul>
         </div>
 
         <div>
-          <h4 className="text-sm font-bold mb-4 text-primary">Información</h4>
-          <ul className="space-y-2 text-sm opacity-90">
+          <h4 className="text-sm font-bold mb-4 text-white">Información</h4>
+          <ul className="space-y-2 text-sm text-white/95">
             <li>Envíos a todo el país</li>
             <li>Mayorista y minorista</li>
-            <li>Más de 800 productos</li>
+            <li>Compra mínima: 3 productos</li>
             <li>Atención por WhatsApp</li>
           </ul>
         </div>
       </div>
 
-      <div className="border-t border-white/10">
-        <div className="mx-auto max-w-7xl px-4 md:px-6 py-5 text-center text-xs opacity-70">
-          © {new Date().getFullYear()} ElectroTecno. Todos los derechos reservados.
+      <div className="border-t border-white/20">
+        <div className="mx-auto max-w-7xl px-4 md:px-6 py-5 text-center text-xs text-white/85">
+          © {new Date().getFullYear()} Mayorista Vico. Todos los derechos reservados.
         </div>
       </div>
     </footer>
