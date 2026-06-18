@@ -1,31 +1,17 @@
 import { createServerFn } from "@tanstack/react-start";
 
-const ADMIN_EMAIL = "sergiodanielgonzalez1994@gmail.com";
+const ADMIN_EMAIL = "control@admin.com";
+const ADMIN_PASSWORD = "admin vico 123";
 
 /**
- * One-shot bootstrap: creates the canonical admin user with the given
- * password and grants the 'admin' role. Refuses to run if an admin
- * already exists, so this endpoint is safe to leave in the codebase.
+ * Idempotent bootstrap: ensures the canonical admin user exists with the
+ * configured email/password and has the 'admin' role. Safe to call multiple
+ * times — it will reset the password to the configured value and remove
+ * any other admins.
  */
 export const bootstrapAdmin = createServerFn({ method: "POST" })
-  .inputValidator((data: { password: string }) => {
-    if (!data || typeof data.password !== "string" || data.password.length < 8) {
-      throw new Error("Invalid password");
-    }
-    return data;
-  })
-  .handler(async ({ data }) => {
+  .handler(async () => {
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
-
-    // Refuse if any admin already exists
-    const { count, error: cntErr } = await supabaseAdmin
-      .from("user_roles")
-      .select("*", { count: "exact", head: true })
-      .eq("role", "admin");
-    if (cntErr) throw cntErr;
-    if ((count ?? 0) > 0) {
-      throw new Error("Admin already provisioned");
-    }
 
     // Find or create the user
     let userId: string;
@@ -38,20 +24,22 @@ export const bootstrapAdmin = createServerFn({ method: "POST" })
     if (existing) {
       userId = existing.id;
       const { error: updErr } = await supabaseAdmin.auth.admin.updateUserById(existing.id, {
-        password: data.password,
+        password: ADMIN_PASSWORD,
         email_confirm: true,
       });
       if (updErr) throw updErr;
     } else {
       const { data: created, error: cErr } = await supabaseAdmin.auth.admin.createUser({
         email: ADMIN_EMAIL,
-        password: data.password,
+        password: ADMIN_PASSWORD,
         email_confirm: true,
       });
       if (cErr) throw cErr;
       userId = created.user!.id;
     }
 
+    // Drop any pre-existing admin roles (other accounts) and grant to this user
+    await supabaseAdmin.from("user_roles").delete().eq("role", "admin");
     const { error: roleErr } = await supabaseAdmin
       .from("user_roles")
       .insert({ user_id: userId, role: "admin" });

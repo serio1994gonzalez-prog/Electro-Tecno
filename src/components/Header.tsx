@@ -83,11 +83,11 @@ export function Header() {
 
         <AdminGate className="relative shrink-0">
           <Link to="/" className="flex items-center gap-2">
-            <img 
-                src={logoImage} 
-                alt="ElectroTecno" 
-                className="h-14 md:h-20 w-auto pointer-events-none" 
-                draggable={false} 
+            <img
+                src={logoImage}
+                alt="Mayorista Vico"
+                className="h-14 md:h-20 w-auto pointer-events-none"
+                draggable={false}
             />
           </Link>
         </AdminGate>

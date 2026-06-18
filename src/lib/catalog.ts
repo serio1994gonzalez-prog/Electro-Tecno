@@ -85,10 +85,16 @@ export function formatPrice(n: number) {
   }).format(n);
 }
 
+const PINNED_CODES = ["ESTGF", "SPR3M", "ARFR7", "IRNTK"];
+
 export function getDestacados(n = 12): Producto[] {
-  return [...catalogoBase]
-    .sort((a, b) => ((a.id * 9301 + 49297) % 233280) - ((b.id * 9301 + 49297) % 233280))
-    .slice(0, n);
+  const pinned = PINNED_CODES
+    .map((c) => catalogoBase.find((p) => p.codigo === c))
+    .filter((p): p is Producto => Boolean(p));
+  const rest = catalogoBase
+    .filter((p) => !PINNED_CODES.includes(p.codigo))
+    .sort((a, b) => ((a.id * 9301 + 49297) % 233280) - ((b.id * 9301 + 49297) % 233280));
+  return [...pinned, ...rest].slice(0, n);
 }
 
 export function getByCategoria(slug: string): Producto[] {

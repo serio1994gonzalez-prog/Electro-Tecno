@@ -1,4 +1,8 @@
 [
+	{"id":10001,"nombre":"Estufa Garrafera Dinax","precio":120000.0,"categoria":"PEQUEÑOS ELECTRODOMESTICOS","codigo":"ESTGF","imagen":"/placeholder.svg"},
+	{"id":10002,"nombre":"Manta 3\" Speaker","precio":8000.0,"categoria":"Electronica","codigo":"SPR3M","imagen":"/placeholder.svg"},
+	{"id":10003,"nombre":"Aitech 7L Air Fryer","precio":74400.0,"categoria":"PEQUEÑOS ELECTRODOMESTICOS","codigo":"ARFR7","imagen":"/placeholder.svg"},
+	{"id":10004,"nombre":"Tokyo Steam Iron","precio":34800.0,"categoria":"PEQUEÑOS ELECTRODOMESTICOS","codigo":"IRNTK","imagen":"/placeholder.svg"},
 	{"id":1,"nombre":"Especiero giratorio 12 frascos mr1025","precio":16700.0,"categoria":"DECO- ORGANIZACION Y BAZAR","codigo":"1025","imagen":"https://electrotecno.ar/fotos/1025.jpg"},
 	{"id":2,"nombre":"PERCHAS METALICAS TSV097","precio":7400.0,"categoria":"DECO- ORGANIZACION Y BAZAR","codigo":"1097","imagen":"https://electrotecno.ar/fotos/1097.jpg"},
 	{"id":3,"nombre":"Especiero giratorio 20 frascos tsv2212","precio":22500.0,"categoria":"DECO- ORGANIZACION Y BAZAR","codigo":"2212","imagen":"https://electrotecno.ar/fotos/2212.jpg"},
